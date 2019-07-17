@@ -19,7 +19,7 @@ body {
     color: #00b6a3;
     font-weight: bold;
     font-size: 2.1rem;
-    padding: 1.7rem 0 0 1.5rem;
+    padding: 1.7rem 0 0 1.7rem;
     margin: 0; }
   .header .text {
     color: rgba(58, 35, 141, 0.4);
@@ -34,10 +34,10 @@ body {
   .days .day {
     background: rgba(125, 209, 187, 0.6);
     border-radius: 20px;
+    color: #fcfcfc;
     margin: 0.3rem;
     padding: 0 0.6rem;
-    color: #fcfcfc;
-    text-align: center;
+    align-items: center;
     width: 11%;
     cursor: pointer;
     transition: background-color 1s linear;
@@ -48,8 +48,8 @@ body {
 .background {
   background: rgba(125, 209, 187, 0.6);
   border-radius: 20px;
-  margin: 1.5rem 1rem;
   color: #fcfcfc;
+  margin: 1.5rem 1rem;
   position: relative; }
   .background h2 {
     font-weight: 400;
@@ -81,13 +81,14 @@ body {
 
 #hours {
   font-size: 3rem;
-  text-align: center;
+  align-items: center;
   padding-bottom: 3rem;
   margin: 1rem; }
 
 .header_day {
-  border-radius: 20px;
   background: rgba(125, 209, 187, 0.6);
+  border-radius: 20px;
+  color: #fcfcfc;
   margin: 1.5rem 1rem;
   position: relative; }
   .header_day .arrow {
@@ -95,15 +96,13 @@ body {
     width: 1.3rem;
     position: absolute;
     top: 2rem;
-    margin-left: 1.3rem; }
+    margin-left: 1.2rem; }
   .header_day h1 {
-    color: #fcfcfc;
     font-weight: bold;
     font-size: 2.1rem;
-    padding: 1.7rem 0 0 2rem;
+    padding: 1.7rem 0 0 1.7rem;
     margin: 0 1.3rem; }
   .header_day p {
-    color: #fcfcfc;
     padding: 0 0 1rem 1.5rem;
     font-weight: 500;
     font-size: 0.8rem;

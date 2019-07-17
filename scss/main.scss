@@ -2,7 +2,20 @@ $background-color: rgba(125, 209, 187, 0.6);
 $br: 20px;
 $font-color: #fcfcfc;
 $tran-green: rgba(58, 35, 141, 0.4);
-
+@mixin radius_color_background {
+  background: $background-color;
+  border-radius: $br;
+  color: $font-color;
+}
+@mixin reverse_background_radius {
+  background: $font-color;
+  border-radius: $br;
+}
+@mixin bold_big {
+  font-weight: bold;
+  font-size: 2.1rem;
+  padding: 1.7rem 0 0 1.7rem;
+}
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -23,9 +36,8 @@ body {
   margin: 1.5rem 1rem;
   h1 {
     color: #00b6a3;
-    font-weight: bold;
-    font-size: 2.1rem;
-    padding: 1.7rem 0 0 1.5rem;
+    @include bold_big;
+
     margin: 0;
   }
   .text {
@@ -41,12 +53,10 @@ body {
   display: flex;
   justify-content: center;
   .day {
-    background: $background-color;
-    border-radius: $br;
+    @include radius_color_background;
     margin: 0.3rem;
     padding: 0 0.6rem;
-    color: $font-color;
-    text-align: center;
+    align-items: center;
     width: 11%;
     cursor: pointer;
     transition: background-color 1s linear;
@@ -58,12 +68,9 @@ body {
 }
 //background of hours, steps and clories elements
 .background {
-  background: $background-color;
-  border-radius: $br;
+  @include radius_color_background;
   margin: 1.5rem 1rem;
-  color: $font-color;
   position: relative;
-
   h2 {
     font-weight: 400;
     margin-bottom: 0;
@@ -101,7 +108,7 @@ body {
 }
 #hours {
   font-size: 3rem;
-  text-align: center;
+  align-items: center;
   padding-bottom: 3rem;
   margin: 1rem;
 }
@@ -109,8 +116,7 @@ body {
 // EVERY DAY PAGE
 
 .header_day {
-  border-radius: $br;
-  background: $background-color;
+  @include radius_color_background;
   margin: 1.5rem 1rem;
   position: relative;
   .arrow {
@@ -118,17 +124,13 @@ body {
     width: 1.3rem;
     position: absolute;
     top: 2rem;
-    margin-left: 1.3rem;
+    margin-left: 1.2rem;
   }
   h1 {
-    color: $font-color;
-    font-weight: bold;
-    font-size: 2.1rem;
-    padding: 1.7rem 0 0 2rem;
+    @include bold_big;
     margin: 0 1.3rem;
   }
   p {
-    color: $font-color;
     padding: 0 0 1rem 1.5rem;
     font-weight: 500;
     font-size: 0.8rem;
@@ -142,8 +144,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 1.8rem 0.5rem 0 0.5rem;
-  background: $font-color;
-  border-radius: $br;
+  @include reverse_background_radius;
   .day_steps {
     border: 8px solid #34c7a0;
     border-radius: 50%;
