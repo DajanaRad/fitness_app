@@ -148,6 +148,7 @@ body {
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  align-items: center;
   margin: 1.8rem 0.5rem 0 0.5rem;
   @include reverse_background_radius;
   .day_steps {
@@ -179,6 +180,7 @@ body {
     margin: 0;
   }
 }
+
 .bottom {
   display: flex;
   flex-direction: row;

@@ -114,6 +114,7 @@ body {
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  align-items: center;
   margin: 1.8rem 0.5rem 0 0.5rem;
   background: #fcfcfc;
   border-radius: 20px; }
