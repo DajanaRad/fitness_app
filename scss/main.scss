@@ -1,7 +1,9 @@
 $background-color: rgba(125, 209, 187, 0.6);
 $br: 20px;
 $font-color: #fcfcfc;
-$tran-green: rgba(58, 35, 141, 0.4);
+$darker-green: rgba(58, 35, 141, 0.4);
+$lighter-green: rgba(252, 252, 252, 0.7);
+
 @mixin radius_color_background {
   background: $background-color;
   border-radius: $br;
@@ -16,6 +18,7 @@ $tran-green: rgba(58, 35, 141, 0.4);
   font-size: 2.1rem;
   padding: 1.7rem 0 0 1.7rem;
 }
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -37,11 +40,10 @@ body {
   h1 {
     color: #00b6a3;
     @include bold_big;
-
     margin: 0;
   }
   .text {
-    color: $tran-green;
+    color: $darker-green;
     padding: 0 0 1rem 1.5rem;
     font-weight: 700;
     font-size: 1rem;
@@ -56,17 +58,20 @@ body {
     @include radius_color_background;
     margin: 0.3rem;
     padding: 0 0.6rem;
-    align-items: center;
     width: 11%;
     cursor: pointer;
     transition: background-color 1s linear;
     text-decoration: none;
+    color: $lighter-green;
+    text-align: center;
     p {
       margin: 0.5rem 0;
     }
   }
 }
+
 //background of hours, steps and clories elements
+
 .background {
   @include radius_color_background;
   margin: 1.5rem 1rem;
@@ -80,13 +85,13 @@ body {
     display: inline-block;
     p {
       font-size: 1rem;
-      color: rgba(252, 252, 252, 0.5);
+      color: rgba(252, 252, 252, 0.7);
       margin-top: 0.2rem;
     }
   }
 }
 .svg_image {
-  background: rgba(192, 240, 227, 0.5);
+  background: rgba(192, 240, 227, 0.6);
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
@@ -108,7 +113,7 @@ body {
 }
 #hours {
   font-size: 3rem;
-  align-items: center;
+  text-align: center;
   padding-bottom: 3rem;
   margin: 1rem;
 }
@@ -141,7 +146,7 @@ body {
 .info_day {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
   justify-content: center;
   margin: 1.8rem 0.5rem 0 0.5rem;
   @include reverse_background_radius;
@@ -150,7 +155,6 @@ body {
     border-radius: 50%;
     width: 15rem;
     height: 15rem;
-    text-align: center;
     margin-top: 1.5rem;
     .day_svg {
       margin: 2rem 0.1rem 0 0;
@@ -182,10 +186,10 @@ body {
   div {
     text-align: center;
     margin: 3.5rem 0.3rem 2rem 0.3rem;
-    border-right: 1px solid rgba(192, 240, 227, 0.5);
+    border-right: 1px solid $lighter-green;
     width: 33%;
     .text1 {
-      color: $tran-green;
+      color: $darker-green;
       font-weight: 500;
       font-size: 1rem;
       margin-top: 0;

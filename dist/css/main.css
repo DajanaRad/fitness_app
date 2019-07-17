@@ -37,11 +37,12 @@ body {
     color: #fcfcfc;
     margin: 0.3rem;
     padding: 0 0.6rem;
-    align-items: center;
     width: 11%;
     cursor: pointer;
     transition: background-color 1s linear;
-    text-decoration: none; }
+    text-decoration: none;
+    color: rgba(252, 252, 252, 0.7);
+    text-align: center; }
     .days .day p {
       margin: 0.5rem 0; }
 
@@ -59,11 +60,11 @@ body {
     display: inline-block; }
     .background .type p {
       font-size: 1rem;
-      color: rgba(252, 252, 252, 0.5);
+      color: rgba(252, 252, 252, 0.7);
       margin-top: 0.2rem; }
 
 .svg_image {
-  background: rgba(192, 240, 227, 0.5);
+  background: rgba(192, 240, 227, 0.6);
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
@@ -81,7 +82,7 @@ body {
 
 #hours {
   font-size: 3rem;
-  align-items: center;
+  text-align: center;
   padding-bottom: 3rem;
   margin: 1rem; }
 
@@ -111,7 +112,7 @@ body {
 .info_day {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
   justify-content: center;
   margin: 1.8rem 0.5rem 0 0.5rem;
   background: #fcfcfc;
@@ -121,7 +122,6 @@ body {
     border-radius: 50%;
     width: 15rem;
     height: 15rem;
-    text-align: center;
     margin-top: 1.5rem; }
     .info_day .day_steps .day_svg {
       margin: 2rem 0.1rem 0 0; }
@@ -147,7 +147,7 @@ body {
   .bottom div {
     text-align: center;
     margin: 3.5rem 0.3rem 2rem 0.3rem;
-    border-right: 1px solid rgba(192, 240, 227, 0.5);
+    border-right: 1px solid rgba(252, 252, 252, 0.7);
     width: 33%; }
     .bottom div .text1 {
       color: rgba(58, 35, 141, 0.4);
