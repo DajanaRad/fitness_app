@@ -1,0 +1,205 @@
+$background-color: rgba(125, 209, 187, 0.6);
+$br: 20px;
+$font-color: #fcfcfc;
+$tran-green: rgba(58, 35, 141, 0.4);
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+.main-background {
+  background: repeating-linear-gradient(to left top, #008aa2, #34c7a0);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  top: 0;
+}
+
+.header {
+  border-radius: $br;
+  background: $font-color;
+  margin: 1.5rem 1rem;
+  h1 {
+    color: #00b6a3;
+    font-weight: bold;
+    font-size: 2.1rem;
+    padding: 1.7rem 0 0 1.5rem;
+    margin: 0;
+  }
+  .text {
+    color: $tran-green;
+    padding: 0 0 1rem 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.days {
+  display: flex;
+  justify-content: center;
+  .day {
+    background: $background-color;
+    border-radius: $br;
+    margin: 0.3rem;
+    padding: 0 0.6rem;
+    color: $font-color;
+    text-align: center;
+    width: 11%;
+    cursor: pointer;
+    transition: background-color 1s linear;
+    text-decoration: none;
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+}
+//background of hours, steps and clories elements
+.background {
+  background: $background-color;
+  border-radius: $br;
+  margin: 1.5rem 1rem;
+  color: $font-color;
+  position: relative;
+
+  h2 {
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+  .type {
+    padding: 0.6rem;
+    display: inline-block;
+    p {
+      font-size: 1rem;
+      color: rgba(252, 252, 252, 0.5);
+      margin-top: 0.2rem;
+    }
+  }
+}
+.svg_image {
+  background: rgba(192, 240, 227, 0.5);
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  display: inline-block;
+  margin-left: 0.8rem;
+  .icon {
+    padding: 0.7rem;
+  }
+}
+
+// steps, calories and hours changable values
+
+#step,
+#calorie {
+  position: absolute;
+  font-size: 1.8rem;
+  display: inline-block;
+  right: 1rem;
+}
+#hours {
+  font-size: 3rem;
+  text-align: center;
+  padding-bottom: 3rem;
+  margin: 1rem;
+}
+
+// EVERY DAY PAGE
+
+.header_day {
+  border-radius: $br;
+  background: $background-color;
+  margin: 1.5rem 1rem;
+  position: relative;
+  .arrow {
+    height: 2rem;
+    width: 1.3rem;
+    position: absolute;
+    top: 2rem;
+    margin-left: 1.3rem;
+  }
+  h1 {
+    color: $font-color;
+    font-weight: bold;
+    font-size: 2.1rem;
+    padding: 1.7rem 0 0 2rem;
+    margin: 0 1.3rem;
+  }
+  p {
+    color: $font-color;
+    padding: 0 0 1rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.info_day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1.8rem 0.5rem 0 0.5rem;
+  background: $font-color;
+  border-radius: $br;
+  .day_steps {
+    border: 8px solid #34c7a0;
+    border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
+    text-align: center;
+    margin-top: 1.5rem;
+    .day_svg {
+      margin: 2rem 0.1rem 0 0;
+    }
+    p {
+      font-size: 1.2rem;
+      margin: 0.1rem 0 0 0;
+    }
+    #day_steps {
+      font-size: 3rem;
+      margin: 0;
+      color: #151c1f;
+    }
+  }
+  .smal_text {
+    margin-bottom: 0.3rem;
+    font-size: 1.4rem;
+  }
+  .big_text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+}
+.bottom {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  div {
+    text-align: center;
+    margin: 3.5rem 0.3rem 2rem 0.3rem;
+    border-right: 1px solid rgba(192, 240, 227, 0.5);
+    width: 33%;
+    .text1 {
+      color: $tran-green;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-top: 0;
+    }
+    .text2 {
+      font-size: 2rem;
+      margin: 0;
+      font-weight: 700;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.active {
+  background: $font-color !important;
+  color: #008aa2 !important;
+  transition: background-color 1s linear;
+}
