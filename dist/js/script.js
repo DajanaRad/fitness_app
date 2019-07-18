@@ -1,4 +1,21 @@
 const days = document.querySelectorAll(".day");
+const mon = document.querySelector("#mon");
+const tue = document.querySelector("#tue");
+const wed = document.querySelector("#wed");
+const thu = document.querySelector("#thu");
+const fri = document.querySelector("#fri");
+
+const hours = document.querySelector("#hours");
+const steps = document.querySelector("#step");
+const calories = document.querySelector("#calorie");
+
+const htmlDay = document.querySelector("#day");
+const htmlDate = document.querySelector("#date");
+const htmlStep = document.querySelector("#day_steps");
+const htmlKm = document.querySelector("#day_km");
+const htmlCal = document.querySelector("#day_cal");
+const htmlHour = document.querySelector("#day_hours");
+
 const dateSteps = [
   { timestamp: 1560151980000, steps: 981 },
   { timestamp: 1560161100000, steps: 103 },
@@ -18,21 +35,25 @@ const dateSteps = [
   { timestamp: 1560546660000, steps: 1176 }
 ];
 
-// NAVIGATION ACTIVE STYLE
+// DAYS ACTIVE STYLE
 
-days.forEach(day =>
-  day.addEventListener("click", () => {
-    days.forEach(element => element.classList.remove("active"));
-    day.classList.add("active");
-  })
-);
+// function addActiveClass() {
+//   days.forEach(day =>
+//     day.addEventListener("click", () => {
+//       days.forEach(element => element.classList.remove("active"));
+//       console.log(this);
+//       day.classList.add("active");
+//     })
+//   );
+// }
+
+// addActiveClass();
 
 //EXTRACTION OF STEPS FOR DAY
 
 const stepsForDay = (products, day) =>
   products.reduce((array, product) => {
     var date = new Date(product.timestamp * 1000);
-    console.log(date);
     if (date.getDay() === day) {
       array.push(product.steps);
     }
@@ -58,7 +79,7 @@ const sum = days =>
 
 // CALCULATION OF KM, CALORIES AND TIME
 
-const calculateKM = steps => ((steps * 0.762) / 1000).toFixed(2) + "KM";
+const calculateKM = steps => ((steps * 0.762) / 1000).toFixed(1) + "km";
 
 const calculateCalories = steps => Math.round(steps * 0.05);
 
@@ -67,12 +88,12 @@ const calculateTime = steps => {
   const hours = Math.floor(totalSeconds / 3600);
   totalSeconds %= 3600;
   let minutes = Math.floor(totalSeconds / 60);
-  const time = `${hours ? hours + "h" + minutes + "m" : minutes + "m"}`;
+  const time = `${hours ? hours + "h " + minutes + "m" : minutes + "m"}`;
   return time;
 };
 
 const friday = sum(stepsForDay(dateSteps, 5));
-const thuesday = sum(stepsForDay(dateSteps, 4));
+const thursday = sum(stepsForDay(dateSteps, 4));
 const wednesday = sum(stepsForDay(dateSteps, 3));
 const tuesday = sum(stepsForDay(dateSteps, 2));
 const monday = sum(stepsForDay(dateSteps, 1));
@@ -86,9 +107,9 @@ const timeForFriday = calculateTime(friday);
 
 //INFORMAATIONS FOR THUESDAY
 
-const kmForThuesday = calculateKM(thuesday);
-const caloriesForThuesday = calculateCalories(thuesday);
-const timeForThuesday = calculateTime(thuesday);
+const kmForThursday = calculateKM(thursday);
+const caloriesForThursday = calculateCalories(thursday);
+const timeForThursday = calculateTime(thursday);
 
 //INFORMAATIONS FOR WEDNESDAY
 
@@ -113,3 +134,100 @@ const timeForMonday = calculateTime(monday);
 const kmForWeek = calculateKM(week);
 const caloriesForWeek = calculateCalories(week);
 const timeForWeek = calculateTime(week);
+
+const generateIndexHtml = () => {
+  hours.innerHTML = timeForWeek;
+  steps.innerHTML = kmForWeek;
+  calories.innerHTML = caloriesForWeek;
+};
+
+function generateDayHtml(day, date, step, km, cal, hour) {
+  htmlDay.innerHTML = day;
+  htmlStep.innerHTML = step;
+  htmlKm.innerHTML = km;
+  htmlCal.innerHTML = cal;
+  htmlHour.innerHTML = hour;
+  htmlDate.innerHTML = date;
+}
+
+function addActiveClass() {
+  days.forEach(day =>
+    day.addEventListener("click", function() {
+      days.forEach(element => element.classList.remove("active"));
+      day.classList.add("active");
+      if (this.id === "mon") {
+        generateDayHtml(
+          "Monday",
+          "Jun 10, 2019",
+          monday,
+          kmForMonday,
+          caloriesForMonday,
+          timeForMonday
+        );
+      }
+      if (this.id === "tue") {
+        generateDayHtml(
+          "Tuesday",
+          "Jun 11, 2019",
+          tuesday,
+          kmForTuesday,
+          caloriesForTuesday,
+          timeForTuesday
+        );
+      }
+      if (this.id === "wed") {
+        generateDayHtml(
+          "Wednesday",
+          "Jun 12, 2019",
+          wednesday,
+          kmForWednesday,
+          caloriesForWednesday,
+          timeForWednesday
+        );
+      }
+      if (this.id === "thu") {
+        generateDayHtml(
+          "Thursday",
+          "Jun 13, 2019",
+          thursday,
+          kmForThursday,
+          caloriesForThursday,
+          timeForThursday
+        );
+      }
+      if (this.id === "fri") {
+        generateDayHtml(
+          "Friday",
+          "Jun 14, 2019",
+          friday,
+          kmForFriday,
+          caloriesForFriday,
+          timeForFriday
+        );
+      }
+    })
+  );
+}
+addActiveClass();
+// WITH IF STATMENT WE ARE CHECKING IF WE ARE ON INDEX.HTML PAGE
+
+if (hours) {
+  generateIndexHtml();
+}
+
+// WITH IF STATMENT WE ARE CHECKING IF WE ARE ON DAY.HTML PAGE
+
+// if (htmlDay) {
+//   mon.addEventListener(
+//     "click",
+
+//     generateDayHtml(
+//       "Monday",
+//       "Jun 10, 2019",
+//       monday,
+//       kmForMonday,
+//       caloriesForMonday,
+//       timeForMonday
+//     )
+//   );
+// }

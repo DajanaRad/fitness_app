@@ -78,7 +78,8 @@ body {
   position: absolute;
   font-size: 1.8rem;
   display: inline-block;
-  right: 1rem; }
+  right: 1.3rem;
+  top: 0.5rem; }
 
 #hours {
   font-size: 3rem;
@@ -149,7 +150,8 @@ body {
     text-align: center;
     margin: 3.5rem 0.3rem 2rem 0.3rem;
     border-right: 1px solid rgba(252, 252, 252, 0.7);
-    width: 33%; }
+    width: 33%;
+    padding: 0 0 0 0.5rem; }
     .bottom div .text1 {
       color: rgba(58, 35, 141, 0.4);
       font-weight: 500;
