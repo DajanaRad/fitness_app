@@ -27,7 +27,7 @@ days.forEach(day =>
   })
 );
 
-//EXTRAXTION OF STEPS FOR EVERY DAY
+//EXTRACTION OF STEPS FOR DAY
 
 const stepsForDay = (products, day) =>
   products.reduce((array, product) => {
@@ -39,7 +39,7 @@ const stepsForDay = (products, day) =>
     return array;
   }, []);
 
-// SUM OF ALL STEPS
+// EXTRACTION OF STEPS FOR WEEK
 
 const stepsForWeek = products => {
   return products.reduce((acumulator, product) => {
@@ -48,7 +48,7 @@ const stepsForWeek = products => {
   }, []);
 };
 
-// SUM OF ALL STEPS
+// SUM OF STEPS
 
 const sum = days =>
   days.reduce((acuml, day) => {
@@ -56,7 +56,7 @@ const sum = days =>
     return acuml;
   });
 
-// KM, CALORIES AND TIME
+// CALCULATION OF KM, CALORIES AND TIME
 
 const calculateKM = steps => ((steps * 0.762) / 1000).toFixed(2) + "KM";
 
@@ -78,7 +78,38 @@ const tuesday = sum(stepsForDay(dateSteps, 2));
 const monday = sum(stepsForDay(dateSteps, 1));
 const week = sum(stepsForWeek(dateSteps));
 
-console.log(calculateKM(friday));
-console.log(calculateCalories(friday));
-console.log(calculateTime(friday));
-console.log(calculateTime(12591));
+//INFORMAATIONS FOR FRIDAY
+
+const kmForFriday = calculateKM(friday);
+const caloriesForFriday = calculateCalories(friday);
+const timeForFriday = calculateTime(friday);
+
+//INFORMAATIONS FOR THUESDAY
+
+const kmForThuesday = calculateKM(thuesday);
+const caloriesForThuesday = calculateCalories(thuesday);
+const timeForThuesday = calculateTime(thuesday);
+
+//INFORMAATIONS FOR WEDNESDAY
+
+const kmForWednesday = calculateKM(wednesday);
+const caloriesForWednesday = calculateCalories(wednesday);
+const timeForWednesday = calculateTime(wednesday);
+
+//INFORMAATIONS FOR TUESDAY
+
+const kmForTuesday = calculateKM(tuesday);
+const caloriesForTuesday = calculateCalories(tuesday);
+const timeForTuesday = calculateTime(tuesday);
+
+//INFORMAATIONS FOR MONDAY
+
+const kmForMonday = calculateKM(monday);
+const caloriesForMonday = calculateCalories(monday);
+const timeForMonday = calculateTime(monday);
+
+//INFORMAATIONS FOR WEEK
+
+const kmForWeek = calculateKM(week);
+const caloriesForWeek = calculateCalories(week);
+const timeForWeek = calculateTime(week);
