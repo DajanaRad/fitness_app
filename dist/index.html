@@ -1,96 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" href="img/FITNES.png" type="image/x-icon" />
-    <link rel="stylesheet" href="css/main.css" />
-    <title>Steps Tracker</title>
-  </head>
-  <body>
-      <div class="main-background"></div>
-    <div class="header">
-      <h1>Welcome!</h1>
-      <p class="text">Overview of your activity</p>
-    </div>
-    
-    <main>
-      <div class="days">
-        <a href="day.html" id="monInd" class="day jsClickIndex">
-          <p>4 </br> MON</p>
-        </a>
-        <a href="day.html" id="tueInd" class="day jsClickIndex">
-          <p>5 </br> TUE</P>
-        </a>
-        <a href="day.html" id="wedInd" class="day jsClickIndex">
-          <p>6 </br> WED</p>
-        </a>
-        <a href="day.html" id="thuInd" class="day jsClickIndex">
-          <p>7 </br> THU</p>
-        </a>
-        <a href="day.html" id="friInd" class="day jsClickIndex">
-          <p>8 </br> FRI</p>
-        </a>
-      </div>
-      <div class="activity background">
-        <div class="activiti_heading">
-          <div class="svg_image">
-              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/>
-                
-                  
-                <path fill = "#fff" d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-          </div>
 
-          <div class="type">
-            <h2>Activity</h2>
-            <p>Average</p>
-          </div>
-        </div>
-        <p id="hours"></p>
-      </div>
-      <div class="steps background">
-        <div class="svg_image ">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path fill = "#fff" d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg>
-        </div>
-        <div class="type">
-          <h2>Steps</h2>
-          <p>Total</p>
-        </div>
-        <p id="step"></p>
-      </div>
-      <div class="calories background">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" href="img/FITNES.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/main.css" />
+  <title>Steps Tracker</title>
+  <script>var init = "index";</script>
+</head>
+<body>
+  <div class="main-background"></div>
+  <div class="header">
+    <h1>Welcome!</h1>
+    <p class="text">Overview of your activity</p>
+  </div>
+  <main class="scale-up-center">
+    <div class="days">
+      <a href="day.html" id="mon" class="day">
+        <p>4 </br> MON</p>
+      </a>
+      <a href="day.html" id="tue" class="day">
+        <p>5 </br> TUE</P>
+      </a>
+      <a href="day.html" id="wed" class="day">
+        <p>6 </br> WED</p>
+      </a>
+      <a href="day.html" id="thu" class="day">
+        <p>7 </br> THU</p>
+      </a>
+      <a href="day.html" id="fri" class="day">
+        <p>8 </br> FRI</p>
+      </a>
+    </div>
+    <div class="activity background">
+      <div class="activiti_heading">
         <div class="svg_image">
-          <svg class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <defs>
-              <style>
-                .a {
-                  fill: #fff;
-                }
-                .b {
-                  fill: none;
-                }
-              </style>
-            </defs>
-            <path
-              class="a"
-              d="M13.5.67a21.493,21.493,0,0,1,.74,4.8A3.47,3.47,0,0,1,10.83,9.2,3.64,3.64,0,0,1,7.2,5.47l.03-.36A13.768,13.768,0,0,0,4,14a8,8,0,0,0,16,0A17.115,17.115,0,0,0,13.5.67ZM11.71,19a3.176,3.176,0,0,1-3.22-3.14,3.132,3.132,0,0,1,2.81-3.12,7.712,7.712,0,0,0,4.62-2.58,13.953,13.953,0,0,1,.59,4.04,4.8,4.8,0,0,1-4.8,4.8Z"
-            />
-            <path class="b" d="M0,0H24V24H0Z" />
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path fill="#fff"
+              d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
           </svg>
         </div>
         <div class="type">
-          <h2>Calories</h2>
-          <p>Total Burned</p>
+          <h2>Activity</h2>
+          <p>Average</p>
         </div>
-        <p id="calorie"></p>
       </div>
-    </main>
-    <script src="js/script.js"></script>
-  </body>
+      <p id="hours"></p>
+    </div>
+    <div class="steps background">
+      <div class="svg_image ">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path fill="#fff"
+            d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z" />
+        </svg>
+      </div>
+      <div class="type">
+        <h2>Steps</h2>
+        <p>Total</p>
+      </div>
+      <p id="step"></p>
+    </div>
+    <div class="calories background">
+      <div class="svg_image">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <defs>
+            <style>
+              .a {
+                fill: #fff;
+              }
+
+              .b {
+                fill: none;
+              }
+            </style>
+          </defs>
+          <path class="a"
+            d="M13.5.67a21.493,21.493,0,0,1,.74,4.8A3.47,3.47,0,0,1,10.83,9.2,3.64,3.64,0,0,1,7.2,5.47l.03-.36A13.768,13.768,0,0,0,4,14a8,8,0,0,0,16,0A17.115,17.115,0,0,0,13.5.67ZM11.71,19a3.176,3.176,0,0,1-3.22-3.14,3.132,3.132,0,0,1,2.81-3.12,7.712,7.712,0,0,0,4.62-2.58,13.953,13.953,0,0,1,.59,4.04,4.8,4.8,0,0,1-4.8,4.8Z" />
+          <path class="b" d="M0,0H24V24H0Z" />
+        </svg>
+      </div>
+      <div class="type">
+        <h2>Calories</h2>
+        <p>Total Burned</p>
+      </div>
+      <p id="calorie"></p>
+    </div>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+
 </html>

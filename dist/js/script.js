@@ -1,7 +1,6 @@
 //VARIBLES FOR CLICK EVENET
-const days = document.querySelectorAll(".jsClickDay");
 
-//
+const days = document.querySelectorAll(".day");
 
 //VARIABLE FOR GENERATE HTML ON index.html PAGE
 
@@ -36,15 +35,6 @@ const dateSteps = [
   { timestamp: 1560540780000, steps: 1533 },
   { timestamp: 1560546660000, steps: 1176 }
 ];
-
-//ADDING TO CLICKED DAY WHITE BACKGROUND STYLE
-
-days.forEach(day =>
-  day.addEventListener("click", () => {
-    days.forEach(element => element.classList.remove("active"));
-    day.classList.add("active");
-  })
-);
 
 //EXTRACTION OF STEPS FOR DAY
 
@@ -89,7 +79,7 @@ const calculateTime = steps => {
   return time;
 };
 
-// VARIABLE OF STEPS FOR EACH DAY
+// VARIABLE OF HOW MUCH STEPS IS WALK FOR EACH DAY
 
 const friday = sum(stepsForDay(dateSteps, 5));
 const thursday = sum(stepsForDay(dateSteps, 4));
@@ -98,30 +88,19 @@ const tuesday = sum(stepsForDay(dateSteps, 2));
 const monday = sum(stepsForDay(dateSteps, 1));
 const week = sum(stepsForWeek(dateSteps));
 
+//INFORMAATIONS FOR WEEK STEPS CALORIES AND TIME
+
+const stepForWeek = numberWithCommas(week);
+const caloriesForWeek = calculateCalories(week);
+const timeForWeek = calculateTime(week);
+
 //ADDING COMMA TO STEPS
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// GENERATE ARGUMENTS FOR GenerateDayHtml FUNCTION
-
-function generateInfo(day) {
-  var arg = [];
-  arg.push(numberWithCommas(day)); //steps
-  arg.push(calculateKM(day)); //km
-  arg.push(calculateCalories(day)); //cal
-  arg.push(calculateTime(day)); //time
-  return arg;
-}
-
-//INFORMATION FOR WEEK
-
-const stepForWeek = numberWithCommas(week);
-const caloriesForWeek = calculateCalories(week);
-const timeForWeek = calculateTime(week);
-
-// FUNCTION WRITIN HTML FOR index.html PAGE
+// FUNCTION WRITING GENERATED HTML FOR index.html PAGE
 
 const generateIndexHtml = () => {
   hours.innerHTML = timeForWeek;
@@ -129,7 +108,7 @@ const generateIndexHtml = () => {
   calories.innerHTML = caloriesForWeek;
 };
 
-// FUNCTION WRITIN HTML FOR day.html PAGE
+// FUNCTION WRITING GENERATED HTML FOR day.html PAGE
 
 function generateDayHtml(day, date, step, km, cal, hour) {
   htmlDay.innerHTML = day;
@@ -140,22 +119,36 @@ function generateDayHtml(day, date, step, km, cal, hour) {
   htmlDate.innerHTML = date;
 }
 
-// WITH IF STATMENT WE ARE CHECKING IF WE ARE ON INDEX.HTML PAGE
+//FUNCTION WHICH GENERATE ARGUMENTS FOR ONE DAY. THISE ARGUMENT WILL BE USED IN GENERATE DAY FUNCTION
 
-if (hours) {
-  generateIndexHtml();
+function generateInfo(day) {
+  var arg = [];
+  arg.push(numberWithCommas(day)); //steps
+  arg.push(calculateKM(day)); //km
+  arg.push(calculateCalories(day)); //cal
+  arg.push(calculateTime(day)); //time
+  return arg;
 }
+
+// GENERATE ARGUMENTS FOR EACH DAY
+
 const mondayInfo = generateInfo(monday);
 const tuesdayInfo = generateInfo(tuesday);
 const wednesdayInfo = generateInfo(wednesday);
 const thursdayInfo = generateInfo(thursday);
 const fridayInfo = generateInfo(friday);
 
+//FUNCTION FOr ADDING active CLASS ON day IF CLICKED AND GENERATE HTML ON day.html PAGE DEPENDING ON THE CLICK
+
 function generateDay() {
   days.forEach(day =>
-    day.addEventListener("click", function(e) {
+    day.addEventListener("click", function() {
       days.forEach(element => element.classList.remove("active"));
       day.classList.add("active");
+
+      //ADDING VALUE this.id IN LOCAL STORAGE. AND THEN THAT VALUE IS SAVED WHEN PAGE IS REDIRETED TO day.html
+
+      localStorage.setItem("day", this.id);
       if (this.id === "mon") {
         generateDayHtml("Monday", "Jun 10, 2019", ...mondayInfo);
       }
@@ -175,75 +168,18 @@ function generateDay() {
   );
 }
 generateDay();
+/*
+ CHECKING IF VALUE OF day IS IN LOCAL STORAGE AND CHECKING IF init == day WHICH MEANS THET WE ARE ON day.html PAGE AND IF THAT IS TRUE WE ARE ACTIVATING CLICK
+ WHEN WE GO BACK TO index.html IF WE ARE NOT CHECKING ON WHICH PAGE WE ARE LOCAL STORAGE HAVE PREVIOUS DAY AND CLICK WILL BE EXECUTED AND REDIRECt US TO day.html
+*/
 
-// const global = this;
-// function addActiveClass() {
-//   days.forEach(day => {
-//     day.onclick = function(e) {
-//       e.preventDefault()
-//       global.open("http://127.0.0.1:5500/dist/day.html");
-//       days.forEach(element => element.classList.remove("active"));
-//       day.classList.add("active");
-//     };
-//   });
-// }
+if (localStorage.getItem("day") && init == "days") {
+  // AFTER ADDING LOCAL STORAGE CLICK EVENT WE ARE ACTIVATING
+  document.getElementById(localStorage.getItem("day")).click();
+}
 
-// var mon;
-// document.addEventListener("DOMContentLoaded", function() {
-//   mon = document.querySelector("#monInd");
-//   console.log(mon);
-//   mon.onclick = function() {
-//     days[0].classList.add("active");
-//     generateDayHtml("Monday", "Jun 10, 2019", ...mondayInfo);
-//   };
-// });
-// const indexDays = document.querySelectorAll(".jsClickIndex");
+// WITH IF STATMENT WE ARE CHECKING IF WE ARE ON INDEX.HTML PAGE
 
-// indexDays[0].onclick = function() {
-//   document.addEventListener("DOMContentLoaded", function() {
-//     days[0].classList.add("active");
-//     generateDayHtml("Monday", "Jun 10, 2019", ...mondayInfo);
-//   });
-// };
-
-// var mon = document.querySelector("[id='monInd']");
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   mon.addEventListener("click", function() {
-//       days[0].classList.add("active");
-//       generateDayHtml("Monday", "Jun 10, 2019", ...mondayInfo);
-//     });
-// });
-
-// const mondayTimeOut = setTimeout(function() {
-//   days[0].classList.add("active");
-//   generateDayHtml("Monday", "Jun 11, 2019", ...mondayInfo);
-// }, 2000);
-
-// mon.addEventListener("click", function() {
-//   days[0].classList.add("active");
-//   generateDayHtml("Monday", "Jun 10, 2019", ...mondayInfo);
-// });
-// const wed = document.querySelector("#wedInd");
-// const thu = document.querySelector("#thuInd");
-// const fri = document.querySelector("#friInd");
-// function generateIndex() {
-//   indexDays.forEach(day =>
-//     day.addEventListener("click", function() {
-//       days.forEach(element => element.classList.remove("active"));
-
-//       if (this.id === "tue") {
-//         generateDayHtml("Tuesday", "Jun 11, 2019", ...tuesdayInfo);
-//       }
-//       if (this.id === "wed") {
-//         generateDayHtml("Wednesday", "Jun 12, 2019", ...wednesdayInfo);
-//       }
-//       if (this.id === "thu") {
-//         generateDayHtml("Thursday", "Jun 13, 2019", ...thursdayInfo);
-//       }
-//       if (this.id === "fri") {
-//         generateDayHtml("Friday", "Jun 14, 2019", ...fridayInfo);
-//       }
-//     })
-//   );
-// }
+if (hours) {
+  generateIndexHtml();
+}

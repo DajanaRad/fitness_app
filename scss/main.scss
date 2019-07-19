@@ -24,6 +24,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
+
 .main-background {
   background: repeating-linear-gradient(to left top, #008aa2, #34c7a0);
   position: fixed;
@@ -54,8 +55,11 @@ body {
 .days {
   display: flex;
   justify-content: center;
+  margin: 0 1rem;
+
   .day {
     @include radius_color_background;
+    flex-shrink: 0;
     margin: 0.3rem;
     padding: 0 0.6rem;
     width: 11%;
@@ -70,7 +74,7 @@ body {
   }
 }
 
-//background of hours, steps and clories elements
+//background of hours, steps and clories nad days elements
 
 .background {
   @include radius_color_background;
@@ -90,6 +94,8 @@ body {
     }
   }
 }
+
+//
 .svg_image {
   background: rgba(192, 240, 227, 0.6);
   border-radius: 50%;
@@ -155,21 +161,21 @@ body {
   .day_steps {
     border: 8px solid #34c7a0;
     border-radius: 50%;
-    width: 15rem;
-    height: 15rem;
-    margin-top: 1.5rem;
+    width: 13rem;
+    height: 13rem;
+    margin-top: 1.3rem;
     .day_svg {
-      margin: 1.6rem 0.1rem 0 0;
+      margin: 1rem 0 0 0 !important;
     }
     p {
       font-size: 1.2rem;
-      margin: 0.3rem 0;
+      margin: 0;
     }
     #day_steps {
       font-size: 3rem;
       color: #151c1f;
       font-weight: 700;
-      margin-top: 0.5rem;
+      margin-top: 0;
     }
   }
   .smal_text {
@@ -187,24 +193,23 @@ body {
 .bottom {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 96vw;
   div {
     text-align: center;
-    margin: 3.5rem 0.3rem 2rem 0.3rem;
+    margin: 3.5rem 0 2rem 0;
     border-right: 1px solid $lighter-green;
     width: 33%;
     .text1 {
       color: $darker-green;
       font-weight: 500;
       font-size: 1rem;
-      margin-top: 0;
     }
     .text2 {
       font-size: 2rem;
-      margin: 0;
       font-weight: 700;
       padding-bottom: 0;
       color: #00b6a3;
+      margin: 0;
     }
   }
 }
@@ -215,18 +220,105 @@ body {
   transition: background-color 1s linear;
 }
 
-@keyframes bounce {
+@media (max-width: 40rem) {
+  .overflow {
+    height: 42rem;
+    overflow: hidden;
+  }
+  .info_day {
+    padding-bottom: 8rem;
+  }
+}
+
+//ANIMATIONS
+
+.scale-up-center {
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes scale-up-center {
   0% {
-    bottom: 5px;
-  }
-  25%,
-  75% {
-    bottom: 15px;
-  }
-  50% {
-    bottom: 20px;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
   }
   100% {
-    bottom: 0;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+.tracking-in-contract-bck {
+  -webkit-animation: tracking-in-contract-bck 2s
+    cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: tracking-in-contract-bck 2s cubic-bezier(0.215, 0.61, 0.355, 1)
+    both;
+}
+
+@-webkit-keyframes tracking-in-contract-bck {
+  0% {
+    letter-spacing: 0.5rem;
+    -webkit-transform: translateZ(400px);
+    transform: translateZ(400px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-contract-bck {
+  0% {
+    letter-spacing: 0.5rem;
+    -webkit-transform: translateZ(400px);
+    transform: translateZ(400px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
   }
 }
