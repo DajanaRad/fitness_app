@@ -145,7 +145,7 @@ const wednesdayInfo = generateInfo(wednesday);
 const thursdayInfo = generateInfo(thursday);
 const fridayInfo = generateInfo(friday);
 
-//FUNCTION FOR ADDING active CLASS ON day IF CLICKED AND GENERATE HTML ON day.html PAGE DEPENDING ON THE CLICK. CLICK COLD EATHER HAPPEND ON day WHICH IS ON index.html or day.html PAGE
+//FUNCTION FOR ADDING active CLASS ON day IF CLICKED AND GENERATE HTML ON day.html PAGE DEPENDING ON THE CLICK. CLICK COULD EATHER HAPPEND ON day WHICH IS ON index.html or day.html PAGE
 
 function generateDay() {
   days.forEach(day =>
@@ -153,7 +153,7 @@ function generateDay() {
       days.forEach(element => element.classList.remove("active"));
       day.classList.add("active");
 
-      //ADDING VALUE this.id IN LOCAL STORAGE. AND THEN THAT VALUE IS SAVED WHEN PAGE IS REDIRETED TO day.html
+      //ADDING VALUE this.id IN LOCAL STORAGE. AND THEN THAT VALUE IS SAVED WHEN PAGE IS REDIRECTED TO day.html
 
       localStorage.setItem("day", this.id);
       if (this.id === "mon") {
