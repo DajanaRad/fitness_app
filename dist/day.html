@@ -9,45 +9,38 @@
   <link rel="stylesheet" href="css/main.css" />
   <title>Steps Tracker</title>
   <script>
-
-    // inicijalizuje varijablu za validaciju unutar script.js
-
-    var init = "days";
+  // inicijalizuje varijablu za validaciju unutar script.js
+  var init = "days";
   </script>
 </head>
-
 <body>
   <div class="main-background"></div>
-  <div class="header_day">
-    <a href="index.html"><svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-        viewBox="0 0 24 24">
-        <path fill="#fff" d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z" />
-        <path fill="none" d="M0 0h24v24H0z" /></svg></a>
-
+  <header class="header_day">
+    <a href="index.html">
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
+    </a>
     <h1 id="day"></h1>
     <p id="date"></p>
-  </div>
-
-  <main class="overflow">
-    
-      <div class="days" >
+  </header>
+  <main class="overflow">  
+      <section class="days" >
         <div class="day" id="mon">
-          <p>4 </br> MON</p>
+          <p>10</br>MON</p>
         </div>
         <div class="day" id="tue">
-          <p>5 </br> TUE</P>
+          <p>11</br>TUE</P>
         </div>
         <div class="day" id="wed">
-          <p>6 </br> WED</p>
+          <p>12</br>WED</p>
         </div>
         <div class="day" id="thu">
-          <p>7 </br> THU</p>
+          <p>13</br>THU</p>
         </div>
         <div class="day" id="fri">
-          <p>8 </br> FRI</p>
+          <p>14</br>FRI</p>
         </div>
-      </div>
-      <div class="info_day">
+      </section>
+      <section class="info_day">
         <div class="day_steps">
           <div class="svg_image day_svg">
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -62,20 +55,20 @@
         <p class="smal_text text-focus-in">Very good</p>
         <p class="big_text tracking-in-contract-bck">Keep Going!</p>
         <div class="bottom">
-          <div>
+          <section class="border">
             <p class="text1">km</p>
             <p class="text2 text-focus-in" id="day_km"></p>
-          </div>
-          <div>
+          </section>
+          <section class="border">
             <p class="text1">cal</p>
             <p class="text2 text-focus-in" id="day_cal"></p>
-          </div>
-          <div>
-            <p class="text1">time</p>
+          </section>
+          <section>
+            <p class="text1">min</p>
             <p class="text2 text-focus-in" id="day_hours"></p>
-          </div>
+          </section>
         </div>
-      </div>
+      </section>
   </main>
   <script src="js/script.js"></script>
 </body>

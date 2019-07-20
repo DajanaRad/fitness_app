@@ -75,7 +75,14 @@ const calculateTime = steps => {
   const hours = Math.floor(totalSeconds / 3600);
   totalSeconds %= 3600;
   let minutes = Math.floor(totalSeconds / 60);
-  const time = `${hours ? hours + "h " + minutes + "m" : minutes + "m"}`;
+
+  /* IF WE ARE ON PAGE index.html THEN ADD HOURS AND MINUTES WITH h and m 
+  BUT IF WE ARE ON PAGE day.html ONLY ADD NUMBER OF MINUTES WITHOUT m
+  BECAUSE IN DAY PAGE EVERY VALUE OF TIME IS NOT HIGHER THEN 1h
+  */
+  const time = `${
+    init == "index" ? (hours ? hours + "h " + minutes + "min" : "") : minutes
+  }`;
   return time;
 };
 
@@ -150,19 +157,19 @@ function generateDay() {
 
       localStorage.setItem("day", this.id);
       if (this.id === "mon") {
-        generateDayHtml("Monday", "Jun 10, 2019", ...mondayInfo);
+        generateDayHtml("Monday", "June 10, 2019.", ...mondayInfo);
       }
       if (this.id === "tue") {
-        generateDayHtml("Tuesday", "Jun 11, 2019", ...tuesdayInfo);
+        generateDayHtml("Tuesday", "June 11, 2019.", ...tuesdayInfo);
       }
       if (this.id === "wed") {
-        generateDayHtml("Wednesday", "Jun 12, 2019", ...wednesdayInfo);
+        generateDayHtml("Wednesday", "June 12, 2019.", ...wednesdayInfo);
       }
       if (this.id === "thu") {
-        generateDayHtml("Thursday", "Jun 13, 2019", ...thursdayInfo);
+        generateDayHtml("Thursday", "June 13, 2019.", ...thursdayInfo);
       }
       if (this.id === "fri") {
-        generateDayHtml("Friday", "Jun 14, 2019", ...fridayInfo);
+        generateDayHtml("Friday", "June 14, 2019.", ...fridayInfo);
       }
     })
   );

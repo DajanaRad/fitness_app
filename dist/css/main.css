@@ -11,46 +11,46 @@ body {
   z-index: -1;
   top: 0; }
 
-.header {
-  border-radius: 20px;
+#header {
+  border-radius: 22px;
   background: #fcfcfc;
   margin: 1.5rem 1rem; }
-  .header h1 {
+  #header h1 {
     color: #00b6a3;
     font-weight: bold;
-    font-size: 2.1rem;
+    font-size: 2.2rem;
     padding: 1.7rem 0 0 1.7rem;
     margin: 0; }
-  .header .text {
+  #header .text {
     color: rgba(58, 35, 141, 0.4);
     padding: 0 0 1rem 1.5rem;
     font-weight: 700;
-    font-size: 1rem;
     margin-top: 0.5rem; }
 
 .days {
   display: flex;
   justify-content: center;
-  margin: 0 1rem; }
+  margin: 0 0.8rem; }
   .days .day {
     background: rgba(125, 209, 187, 0.6);
     border-radius: 20px;
     color: #fcfcfc;
     flex-shrink: 0;
     margin: 0.3rem;
-    padding: 0 0.6rem;
+    padding: 0.2rem 3vw;
     width: 11%;
     cursor: pointer;
     transition: background-color 1s linear;
     text-decoration: none;
     color: rgba(252, 252, 252, 0.7);
-    text-align: center; }
+    text-align: center;
+    display: inline-block; }
     .days .day p {
       margin: 0.5rem 0; }
 
 .background {
   background: rgba(125, 209, 187, 0.6);
-  border-radius: 20px;
+  border-radius: 25px;
   color: #fcfcfc;
   margin: 1.5rem 1rem;
   position: relative; }
@@ -66,51 +66,51 @@ body {
       margin-top: 0.2rem; }
 
 .svg_image {
-  background: rgba(192, 240, 227, 0.6);
+  background: rgba(192, 240, 227, 0.7);
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
   display: inline-block;
-  margin-left: 0.8rem; }
+  margin-left: 1.4rem; }
   .svg_image .icon {
     padding: 0.7rem; }
 
 #step,
 #calorie {
   position: absolute;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: bold;
   display: inline-block;
   right: 1.3rem;
   top: 0.5rem; }
 
 #hours {
-  font-size: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
   text-align: center;
   padding-bottom: 3rem;
   margin: 1rem; }
 
 .header_day {
   background: rgba(125, 209, 187, 0.6);
-  border-radius: 20px;
+  border-radius: 25px;
   color: #fcfcfc;
   margin: 1.5rem 1rem;
   position: relative; }
   .header_day .arrow {
-    height: 2rem;
-    width: 1.3rem;
     position: absolute;
-    top: 2rem;
-    margin-left: 1.2rem; }
+    top: 2.5rem;
+    margin-left: 1.5rem; }
   .header_day h1 {
     font-weight: bold;
-    font-size: 2.1rem;
+    font-size: 2.2rem;
     padding: 1.7rem 0 0 1.7rem;
-    margin: 0 1.3rem; }
+    margin: 0 0 0 1.7rem; }
   .header_day p {
-    padding: 0 0 1rem 3rem;
+    padding: 0.5rem 0 1rem 3.8rem;
     font-weight: 500;
-    font-size: 0.8rem;
-    margin-top: 0.5rem; }
+    color: rgba(252, 252, 252, 0.7);
+    margin: 0; }
 
 .info_day {
   display: flex;
@@ -118,53 +118,52 @@ body {
   text-align: center;
   justify-content: center;
   align-items: center;
-  margin: 1.8rem 0.5rem 0 0.5rem;
+  margin: 1.8rem 1rem 0 1rem;
   background: #fcfcfc;
-  border-radius: 20px; }
+  border-radius: 25px; }
   .info_day .day_steps {
-    border: 8px solid #34c7a0;
+    border: 8px solid #00b6a3;
     border-radius: 50%;
-    width: 13rem;
-    height: 13rem;
-    margin-top: 1.3rem; }
+    width: 15rem;
+    height: 15rem;
+    margin-top: 2.3rem; }
     .info_day .day_steps .day_svg {
       margin: 1rem 0 0 0 !important; }
     .info_day .day_steps p {
-      font-size: 1.2rem;
-      margin: 0; }
+      font-size: 1.4rem;
+      margin: 0.4rem 0; }
     .info_day .day_steps #day_steps {
-      font-size: 3rem;
+      font-size: 3.2rem;
       color: #151c1f;
       font-weight: 700;
       margin-top: 0; }
   .info_day .smal_text {
-    margin-bottom: 0.5rem;
-    font-size: 1.4rem;
-    animation: bounce 1s infinite; }
+    margin: 2rem 0 0.5rem 0;
+    font-size: 1.4rem; }
   .info_day .big_text {
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0; }
-
-.bottom {
-  display: flex;
-  flex-direction: row;
-  width: 96vw; }
-  .bottom div {
-    text-align: center;
-    margin: 3.5rem 0 2rem 0;
-    border-right: 1px solid rgba(252, 252, 252, 0.7);
-    width: 33%; }
-    .bottom div .text1 {
-      color: rgba(58, 35, 141, 0.4);
-      font-weight: 500;
-      font-size: 1rem; }
-    .bottom div .text2 {
-      font-size: 2rem;
-      font-weight: 700;
-      padding-bottom: 0;
-      color: #00b6a3;
-      margin: 0; }
+  .info_day .bottom {
+    display: flex;
+    flex-direction: row;
+    width: 96vw; }
+    .info_day .bottom section {
+      text-align: center;
+      margin: 3.5rem 0 2rem 0;
+      width: 33%; }
+      .info_day .bottom section.border {
+        border-right: 1px solid rgba(58, 35, 141, 0.1); }
+      .info_day .bottom section .text1 {
+        color: rgba(58, 35, 141, 0.4);
+        font-weight: 500;
+        margin-bottom: 0.3rem; }
+      .info_day .bottom section .text2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        padding-bottom: 0;
+        color: #00b6a3;
+        margin: 0; }
 
 .active {
   background: #fcfcfc !important;
@@ -177,6 +176,22 @@ body {
     overflow: hidden; }
   .info_day {
     padding-bottom: 8rem; } }
+
+@media (min-width: 40rem) {
+  .background {
+    padding: 0 3rem; }
+  #step,
+  #calorie {
+    right: 3rem; }
+  main .days .day {
+    margin: 0.6rem; } }
+
+@media (min-width: 60rem) {
+  .background {
+    padding: 0 4rem; }
+  #step,
+  #calorie {
+    right: 5rem; } }
 
 .scale-up-center {
   -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
