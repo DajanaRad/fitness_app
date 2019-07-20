@@ -110,7 +110,7 @@ function numberWithCommas(x) {
 // FUNCTION WRITING GENERATED HTML FOR index.html PAGE
 
 const generateIndexHtml = () => {
-  // WITH IF STATMENT IF WE ARE ON index.html PAGE THEN GENERATE TEXT IN index.html
+  //IF WE ARE ON index.html PAGE THEN GENERATE TEXT IN index.html
   if (init === "index") {
     hours.innerHTML = timeForWeek;
     steps.innerHTML = stepForWeek;
@@ -121,7 +121,7 @@ const generateIndexHtml = () => {
 // FUNCTION WRITING GENERATED HTML FOR day.html PAGE
 
 function generateDayHtml(day, date, step, km, cal, hour) {
-  // WITH IF STATMENT IF WE ARE ON days.html PAGE THEN GENERATE TEXT IN days.html
+  //IF WE ARE ON days.html PAGE THEN GENERATE TEXT IN days.html
   if (init === "days") {
     htmlDay.innerHTML = day;
     htmlStep.innerHTML = step;
@@ -132,7 +132,7 @@ function generateDayHtml(day, date, step, km, cal, hour) {
   }
 }
 
-//FUNCTION WHICH GENERATE ARGUMENTS FOR ONE DAY. THISE ARGUMENT WILL BE USED IN GENERATE DAY FUNCTION
+//FUNCTION WHICH GENERATE ARGUMENTS FOR ONE DAY. THoSE ARGUMENTs WILL BE USED IN generateDay FUNCTION
 
 function generateInfo(day) {
   var arg = [];
@@ -151,7 +151,9 @@ const wednesdayInfo = generateInfo(wednesday);
 const thursdayInfo = generateInfo(thursday);
 const fridayInfo = generateInfo(friday);
 
-//FUNCTION FOR ADDING active CLASS ON day IF CLICKED AND GENERATE HTML ON day.html PAGE DEPENDING ON THE CLICK. CLICK COULD EATHER HAPPEND ON day WHICH IS ON index.html or day.html PAGE
+/*
+FUNCTION FOR ADDING active CLASS ON day IF CLICKED AND GENERATE HTML ON day.html PAGE DEPENDING ON THE CLICK. CLICK COULD EATHER HAPPEND ON day WHICH IS ON index.html or day.html PAGE 
+*/
 
 function generateDay() {
   days.forEach(day =>
@@ -159,7 +161,7 @@ function generateDay() {
       days.forEach(element => element.classList.remove("active"));
       day.classList.add("active");
 
-      //ADDING VALUE this.id IN LOCAL STORAGE. AND THEN THAT VALUE IS SAVED WHEN PAGE IS REDIRECTED TO day.html
+      //ADDING VALUE this.id IN LOCAL STORAGE SO VALUE IS SAVED WHEN PAGE IS REDIRECTED TO day.html
 
       localStorage.setItem("day", this.id);
       if (this.id === "mon") {
@@ -181,7 +183,11 @@ function generateDay() {
   );
 }
 
+//EXECUTION FUNCTIONS FOR WRITING GENERATED HTML BY JS ON index.html AND day.html PAGES
+
+generateIndexHtml();
 generateDay();
+
 /*
  CHECKING IF VALUE OF day IS IN LOCAL STORAGE AND CHECKING IF init == day WHICH MEANS THET WE ARE ON day.html PAGE AND IF THAT IS TRUE WE ARE ACTIVATING CLICK
  WHEN WE GO BACK TO index.html IF WE ARE NOT CHECKING ON WHICH PAGE WE ARE LOCAL STORAGE HAVE PREVIOUS DAY AND CLICK WILL BE EXECUTED AND REDIRECTED US TO day.html
