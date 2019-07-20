@@ -1,14 +1,14 @@
-//VARIBLES FOR CLICK EVENET
+//VARIBLES FOR CLICK EVENT
 
 const days = document.querySelectorAll(".day");
 
-//VARIABLE FOR GENERATE HTML ON index.html PAGE
+//VARIABLES IN WHICH ARE GENERATED HTML ON index.html PAGE
 
 const hours = document.querySelector("#hours");
 const steps = document.querySelector("#step");
 const calories = document.querySelector("#calorie");
 
-//VARIABLE FOR GENERATE HTML ON day.html PAGE
+//VARIABLE IN WHICH ARE GENERATE HTML ON day.html PAGE
 
 const htmlDay = document.querySelector("#day");
 const htmlDate = document.querySelector("#date");
@@ -78,7 +78,7 @@ const calculateTime = steps => {
 
   /* IF WE ARE ON PAGE index.html THEN ADD HOURS AND MINUTES WITH h and m 
   BUT IF WE ARE ON PAGE day.html ONLY ADD NUMBER OF MINUTES WITHOUT m
-  BECAUSE IN DAY PAGE EVERY VALUE OF TIME IS NOT HIGHER THEN 1h
+  BECAUSE IN DAY PAGE EVERY VALUE OF TIME IS NOT HIGHER THEN 60MIN
   */
   const time = `${
     init == "index" ? (hours ? hours + "h " + minutes + "min" : "") : minutes
@@ -86,7 +86,7 @@ const calculateTime = steps => {
   return time;
 };
 
-// VARIABLE OF HOW MUCH STEPS IS WALK FOR EACH DAY
+// VARIABLES OF HOW MUCH STEPS IS WALKED FOR EACH DAY
 
 const friday = sum(stepsForDay(dateSteps, 5));
 const thursday = sum(stepsForDay(dateSteps, 4));
@@ -95,7 +95,7 @@ const tuesday = sum(stepsForDay(dateSteps, 2));
 const monday = sum(stepsForDay(dateSteps, 1));
 const week = sum(stepsForWeek(dateSteps));
 
-//INFORMAATIONS FOR WEEK STEPS CALORIES AND TIME
+//INFORMAATIONS FOR WEEK STEPS, CALORIES AND TIME
 
 const stepForWeek = numberWithCommas(week);
 const caloriesForWeek = calculateCalories(week);
@@ -110,20 +110,26 @@ function numberWithCommas(x) {
 // FUNCTION WRITING GENERATED HTML FOR index.html PAGE
 
 const generateIndexHtml = () => {
-  hours.innerHTML = timeForWeek;
-  steps.innerHTML = stepForWeek;
-  calories.innerHTML = caloriesForWeek;
+  // WITH IF STATMENT IF WE ARE ON index.html PAGE THEN GENERATE TEXT IN index.html
+  if (init === "index") {
+    hours.innerHTML = timeForWeek;
+    steps.innerHTML = stepForWeek;
+    calories.innerHTML = caloriesForWeek;
+  }
 };
 
 // FUNCTION WRITING GENERATED HTML FOR day.html PAGE
 
 function generateDayHtml(day, date, step, km, cal, hour) {
-  htmlDay.innerHTML = day;
-  htmlStep.innerHTML = step;
-  htmlKm.innerHTML = km;
-  htmlCal.innerHTML = cal;
-  htmlHour.innerHTML = hour;
-  htmlDate.innerHTML = date;
+  // WITH IF STATMENT IF WE ARE ON days.html PAGE THEN GENERATE TEXT IN days.html
+  if (init === "days") {
+    htmlDay.innerHTML = day;
+    htmlStep.innerHTML = step;
+    htmlKm.innerHTML = km;
+    htmlCal.innerHTML = cal;
+    htmlHour.innerHTML = hour;
+    htmlDate.innerHTML = date;
+  }
 }
 
 //FUNCTION WHICH GENERATE ARGUMENTS FOR ONE DAY. THISE ARGUMENT WILL BE USED IN GENERATE DAY FUNCTION
@@ -174,19 +180,14 @@ function generateDay() {
     })
   );
 }
+
 generateDay();
 /*
  CHECKING IF VALUE OF day IS IN LOCAL STORAGE AND CHECKING IF init == day WHICH MEANS THET WE ARE ON day.html PAGE AND IF THAT IS TRUE WE ARE ACTIVATING CLICK
- WHEN WE GO BACK TO index.html IF WE ARE NOT CHECKING ON WHICH PAGE WE ARE LOCAL STORAGE HAVE PREVIOUS DAY AND CLICK WILL BE EXECUTED AND REDIRECt US TO day.html
+ WHEN WE GO BACK TO index.html IF WE ARE NOT CHECKING ON WHICH PAGE WE ARE LOCAL STORAGE HAVE PREVIOUS DAY AND CLICK WILL BE EXECUTED AND REDIRECTED US TO day.html
 */
 
-if (localStorage.getItem("day") && init == "days") {
+if (localStorage.getItem("day") && init === "days") {
   // AFTER ADDING LOCAL STORAGE CLICK EVENT WE ARE ACTIVATING
   document.getElementById(localStorage.getItem("day")).click();
-}
-
-// WITH IF STATMENT WE ARE CHECKING IF WE ARE ON INDEX.HTML PAGE
-
-if (hours) {
-  generateIndexHtml();
 }

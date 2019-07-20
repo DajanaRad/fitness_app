@@ -198,8 +198,8 @@ body {
   animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both; }
 
 .text-focus-in {
-  -webkit-animation: text-focus-in 2s cubic-bezier(0.215, 0.61, 0.355, 1) both;
-  animation: text-focus-in 2s cubic-bezier(0.215, 0.61, 0.355, 1) both; }
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: text-focus-in 1s cubic-bezier(0.215, 0.61, 0.355, 1) both; }
 
 .tracking-in-contract-bck {
   -webkit-animation: tracking-in-contract-bck 2s cubic-bezier(0.215, 0.61, 0.355, 1) both;
