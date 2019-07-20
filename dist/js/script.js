@@ -145,7 +145,7 @@ const wednesdayInfo = generateInfo(wednesday);
 const thursdayInfo = generateInfo(thursday);
 const fridayInfo = generateInfo(friday);
 
-//FUNCTION FOr ADDING active CLASS ON day IF CLICKED AND GENERATE HTML ON day.html PAGE DEPENDING ON THE CLICK
+//FUNCTION FOR ADDING active CLASS ON day IF CLICKED AND GENERATE HTML ON day.html PAGE DEPENDING ON THE CLICK. CLICK COLD EATHER HAPPEND ON day WHICH IS ON index.html or day.html PAGE
 
 function generateDay() {
   days.forEach(day =>
