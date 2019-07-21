@@ -128,7 +128,7 @@ body {
     height: 15rem;
     margin-top: 2.3rem; }
     .info_day .day_steps .day_svg {
-      margin: 1rem 0 0 0 !important; }
+      margin: 1rem 0 0 0; }
     .info_day .day_steps p {
       font-size: 1.4rem;
       margin: 0.4rem 0; }
