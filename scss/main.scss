@@ -212,7 +212,7 @@ body {
       margin: 3.5rem 0 2rem 0;
       width: 33%;
       &.border {
-        border-right: 1px solid rgba(58, 35, 141, 0.1);
+        border-right: 1px solid rgba(58, 35, 141, 0.2);
       }
       .text1 {
         color: $darker-green;
@@ -253,15 +253,60 @@ body {
 
 //RESPONSIVNESS FOR SMALLER TABLETS
 @media (min-width: 40rem) {
+  #header,
+  .header_day {
+    .arrow {
+      top: 3rem;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.3rem;
+      margin-top: 0;
+      &.text {
+        margin-top: 0;
+      }
+    }
+  }
   .background {
     padding: 0 3rem;
   }
   #step,
   #calorie {
     right: 3rem;
+    font-size: 2.8rem;
+  }
+  #hours {
+    font-size: 2.8rem;
   }
   main .days .day {
     margin: 0.6rem;
+    font-size: 1.3rem;
+  }
+  .background {
+    .svg_image {
+      position: relative;
+      bottom: 0.7rem;
+    }
+    .type {
+      h2 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  //DAY
+  .overflow .info_day .bottom {
+    .text1 {
+      font-size: 1.8rem;
+    }
+    .text2 {
+      font-size: 3.5rem;
+    }
   }
 }
 
