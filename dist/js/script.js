@@ -17,6 +17,8 @@ const htmlKm = document.querySelector("#day_km");
 const htmlCal = document.querySelector("#day_cal");
 const htmlHour = document.querySelector("#day_hours");
 
+//VALUES FROM SERVER
+
 const dateSteps = [
   { timestamp: 1560151980000, steps: 981 },
   { timestamp: 1560161100000, steps: 103 },
@@ -80,9 +82,7 @@ const calculateTime = steps => {
   BUT IF WE ARE ON PAGE day.html ONLY ADD NUMBER OF MINUTES WITHOUT m
   BECAUSE IN DAY PAGE EVERY VALUE OF TIME IS NOT HIGHER THEN 60MIN
   */
-  const time = `${
-    init == "index" ? (hours ? hours + "h " + minutes + "min" : "") : minutes
-  }`;
+  const time = `${init === "index" ? hours + "h " + minutes + "min" : minutes}`;
   return time;
 };
 
@@ -132,7 +132,7 @@ function generateDayHtml(day, date, step, km, cal, hour) {
   }
 }
 
-//FUNCTION WHICH GENERATE ARGUMENTS FOR ONE DAY. THoSE ARGUMENTs WILL BE USED IN generateDay FUNCTION
+//FUNCTION WHICH GENERATE ARGUMENTS FOR ONE DAY. THOSE ARGUMENTS WILL BE USED IN generateDay FUNCTION
 
 function generateInfo(day) {
   var arg = [];
@@ -143,7 +143,7 @@ function generateInfo(day) {
   return arg;
 }
 
-// GENERATE ARGUMENTS FOR EACH DAY
+// GENERATE ARGUMENTS FOR EACH DAY AND SAVING IT IN VARIABLES
 
 const mondayInfo = generateInfo(monday);
 const tuesdayInfo = generateInfo(tuesday);
@@ -155,7 +155,7 @@ const fridayInfo = generateInfo(friday);
 FUNCTION FOR ADDING active CLASS ON day IF CLICKED AND GENERATE HTML ON day.html PAGE DEPENDING ON THE CLICK. CLICK COULD EATHER HAPPEND ON day WHICH IS ON index.html or day.html PAGE 
 */
 
-function generateDay() {
+function generateDay(idOfDay, dayOfWeek, date, argumentsForDay) {
   days.forEach(day =>
     day.addEventListener("click", function() {
       days.forEach(element => element.classList.remove("active"));
@@ -164,32 +164,24 @@ function generateDay() {
       //ADDING VALUE this.id IN LOCAL STORAGE SO VALUE IS SAVED WHEN PAGE IS REDIRECTED TO day.html
 
       localStorage.setItem("day", this.id);
-      if (this.id === "mon") {
-        generateDayHtml("Monday", "June 10, 2019.", ...mondayInfo);
-      }
-      if (this.id === "tue") {
-        generateDayHtml("Tuesday", "June 11, 2019.", ...tuesdayInfo);
-      }
-      if (this.id === "wed") {
-        generateDayHtml("Wednesday", "June 12, 2019.", ...wednesdayInfo);
-      }
-      if (this.id === "thu") {
-        generateDayHtml("Thursday", "June 13, 2019.", ...thursdayInfo);
-      }
-      if (this.id === "fri") {
-        generateDayHtml("Friday", "June 14, 2019.", ...fridayInfo);
+      if (this.id === idOfDay) {
+        generateDayHtml(dayOfWeek, date, ...argumentsForDay);
       }
     })
   );
 }
 
-//EXECUTION FUNCTIONS FOR WRITING GENERATED HTML BY JS ON index.html AND day.html PAGES
+//EXECUTION OF FUNCTIONS FOR WRITING GENERATED HTML BY JS ON index.html AND day.html PAGES
 
 generateIndexHtml();
-generateDay();
+generateDay("mon", "Monday", "June 10, 2019.", mondayInfo);
+generateDay("tue", "Tuesday", "June 11, 2019.", tuesdayInfo);
+generateDay("wed", "Wednesday", "June 12, 2019.", wednesdayInfo);
+generateDay("thu", "Thursday", "June 13, 2019.", thursdayInfo);
+generateDay("fri", "Friday", "June 14, 2019.", fridayInfo);
 
 /*
- CHECKING IF VALUE OF day IS IN LOCAL STORAGE AND CHECKING IF init == day WHICH MEANS THET WE ARE ON day.html PAGE AND IF THAT IS TRUE WE ARE ACTIVATING CLICK
+ CHECKING IF VALUE OF day IS IN LOCAL STORAGE AND CHECKING IF init === day WHICH MEANS THET WE ARE ON day.html PAGE AND IF THAT IS TRUE WE ARE ACTIVATING CLICK
  WHEN WE GO BACK TO index.html IF WE ARE NOT CHECKING ON WHICH PAGE WE ARE LOCAL STORAGE HAVE PREVIOUS DAY AND CLICK WILL BE EXECUTED AND REDIRECTED US TO day.html
 */
 
