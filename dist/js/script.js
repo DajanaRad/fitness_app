@@ -52,12 +52,11 @@ const stepsForDay = (products, day) =>
 
 // EXTRACTION OF STEPS FOR WEEK
 
-const stepsForWeek = products => {
-  return products.reduce((acumulator, product) => {
+const stepsForWeek = products =>
+  products.reduce((acumulator, product) => {
     acumulator.push(product.steps);
     return acumulator;
   }, []);
-};
 
 // SUM OF STEPS
 
