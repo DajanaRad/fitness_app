@@ -84,12 +84,15 @@ body {
   right: 1.3rem;
   top: 0.5rem; }
 
-#hours {
+#hours,
+#distance {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
   padding-bottom: 3rem;
-  margin: 1rem; }
+  margin: 1rem;
+  display: inline-block;
+  width: 43%; }
 
 .header_day {
   background: rgba(125, 209, 187, 0.6);
@@ -197,7 +200,8 @@ body {
   #calorie {
     right: 3rem;
     font-size: 2.8rem; }
-  #hours {
+  #hours,
+  #distance {
     font-size: 2.8rem; }
   main .days .day {
     margin: 0.6rem;

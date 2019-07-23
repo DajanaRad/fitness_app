@@ -128,12 +128,15 @@ body {
   right: 1.3rem;
   top: 0.5rem;
 }
-#hours {
+#hours,
+#distance {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
   padding-bottom: 3rem;
   margin: 1rem;
+  display: inline-block;
+  width: 43%;
 }
 
 //STYLE FOR EVERY DAY PAGE
@@ -277,7 +280,8 @@ body {
     right: 3rem;
     font-size: 2.8rem;
   }
-  #hours {
+  #hours,
+  #distance {
     font-size: 2.8rem;
   }
   main .days .day {

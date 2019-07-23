@@ -1,4 +1,4 @@
-//VARIBLES FOR CLICK EVENT
+//VARIBLE FOR CLICK EVENT
 
 const days = document.querySelectorAll(".day");
 
@@ -7,6 +7,7 @@ const days = document.querySelectorAll(".day");
 const hours = document.querySelector("#hours");
 const steps = document.querySelector("#step");
 const calories = document.querySelector("#calorie");
+const distance = document.querySelector("#distance");
 
 //VARIABLE IN WHICH ARE GENERATE HTML ON day.html PAGE
 
@@ -68,7 +69,11 @@ const sum = days =>
 
 // CALCULATION OF KM, CALORIES AND TIME
 
-const calculateKM = steps => ((steps * 0.762) / 1000).toFixed(1);
+const calculateKM = steps => {
+  var distance = ((steps * 0.762) / 1000).toFixed(1);
+  init === "index" ? (distance += "km") : "";
+  return distance;
+};
 
 const calculateCalories = steps => Math.round(steps * 0.05);
 
@@ -82,7 +87,7 @@ const calculateTime = steps => {
   BUT IF WE ARE ON PAGE day.html ONLY ADD NUMBER OF MINUTES WITHOUT m
   BECAUSE IN DAY PAGE EVERY VALUE OF TIME IS NOT HIGHER THEN 60MIN
   */
-  const time = `${init === "index" ? hours + "h " + minutes + "min" : minutes}`;
+  const time = init === "index" ? `${hours}h ${minutes}min` : minutes;
   return time;
 };
 
@@ -100,6 +105,7 @@ const week = sum(stepsForWeek(dateSteps));
 const stepForWeek = numberWithCommas(week);
 const caloriesForWeek = calculateCalories(week);
 const timeForWeek = calculateTime(week);
+const distanceForWeek = calculateKM(week);
 
 //ADDING COMMA TO STEPS
 
@@ -115,6 +121,7 @@ const generateIndexHtml = () => {
     hours.innerHTML = timeForWeek;
     steps.innerHTML = stepForWeek;
     calories.innerHTML = caloriesForWeek;
+    distance.innerHTML = distanceForWeek;
   }
 };
 
