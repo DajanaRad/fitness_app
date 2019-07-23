@@ -92,7 +92,10 @@ body {
   padding-bottom: 3rem;
   margin: 1rem 0;
   display: inline-block;
-  width: 48%; }
+  width: 46%; }
+
+#hours {
+  padding-left: 0.5rem; }
 
 .header_day {
   background: rgba(125, 209, 187, 0.6);
