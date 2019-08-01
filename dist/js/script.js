@@ -86,7 +86,7 @@ xhttp.onload = () => {
     const monday = sum(stepsForDay(dateSteps, 1));
     const week = sum(stepsForWeek(dateSteps));
 
-    //INFORMAATIONS FOR WEEK STEPS, CALORIES AND TIME
+    //INFORMAATIONS FOR WEEK STEPS, CALORIES, TIME AND DISTANCE
 
     const stepForWeek = numberWithCommas(week);
     const caloriesForWeek = calculateCalories(week);
